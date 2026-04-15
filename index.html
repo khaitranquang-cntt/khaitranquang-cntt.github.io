@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KHAI TRAN QUANG - Resume</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231e3a5f'/><text x='16' y='23' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-weight='700' font-size='19' fill='%233498DB'>K</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,400,1,0&display=swap" rel="stylesheet">
 <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -25,19 +26,35 @@
     .sheet {
         max-width: 1060px;
         margin: 0 auto;
-        background: #fff;
         border-radius: 16px;
         box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.08);
         display: flex;
-        overflow: hidden;
+        overflow: visible;
+        position: relative;
+    }
+    /* Full-height blue stripe via pseudo-element – no JS needed */
+    .sheet::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 0; bottom: 0;
+        width: 310px;
+        background: linear-gradient(175deg, #1a3352 0%, #1e3d63 60%, #162d4a 100%);
+        border-radius: 16px 0 0 16px;
+        z-index: 0;
     }
 
     /* ===== SIDEBAR ===== */
+    /* side-col stretches to full sheet height (align-items: stretch default) */
     .side-col {
         width: 310px;
         flex-shrink: 0;
-        background: linear-gradient(175deg, #1a3352 0%, #1e3d63 60%, #162d4a 100%);
         color: #e2e8f0;
+        z-index: 1;
+        -webkit-clip-path: inset(0 0 0 0 round 16px 0 0 16px);
+        clip-path: inset(0 0 0 0 round 16px 0 0 16px);
+    }
+    /* side-inner handled by Native CSS Sticky via JS toggling */
+    .side-inner {
         display: flex;
         flex-direction: column;
     }
@@ -134,6 +151,7 @@
         padding: 40px 42px;
         min-width: 0;
         background: #fff;
+        border-radius: 0 16px 16px 0;
     }
 
     /* ===== NAME / TITLE HEADER ===== */
@@ -162,7 +180,7 @@
         letter-spacing: 0.3px;
     }
 
-    /* ===== CONTACT GRID ===== */
+    /* ===== CONTACT INFO ===== */
     .contact-row {
         display: flex;
         flex-wrap: wrap;
@@ -346,18 +364,32 @@
             border-radius: 0;
             max-width: 100%;
         }
+        .sheet::before { display: none; }
 
         .side-col {
             width: 100%;
             flex-shrink: unset;
+            position: static;
+            height: auto;
+            background: linear-gradient(175deg, #1a3352 0%, #1e3d63 60%, #162d4a 100%);
+            -webkit-clip-path: none;
+            clip-path: none;
         }
 
-        .side-top { padding: 28px 20px 20px; }
+        .side-top { padding: 28px 20px 20px; border-radius: 0; }
 
         .side-body { padding: 16px 20px 24px; }
 
         .main-col {
             padding: 24px 20px;
+        }
+
+        .export-btn {
+            bottom: 16px;
+            right: 16px;
+            padding: 10px 16px;
+            font-size: 12px;
+            gap: 6px;
         }
 
         h1.name { font-size: 22px; }
@@ -388,6 +420,26 @@
             columns: 1 !important;
         }
     }
+
+    /* ===== MATERIAL ICONS ===== */
+    .msi {
+        font-family: 'Material Symbols Rounded';
+        font-size: 14px;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
+        vertical-align: -2px;
+    }
+    .contact-icon { font-size: 13px; color: #3498DB; flex-shrink: 0; }
+    .section-icon { font-size: 15px; vertical-align: -3px; margin-right: 4px; }
+    .side-icon { font-size: 12px; vertical-align: -2px; margin-right: 3px; opacity: 0.85; }
 
     /* ===== EXPORT BUTTON ===== */
     .export-btn {
@@ -423,13 +475,43 @@
 
     /* ===== PRINT ===== */
     @media print {
-        body { background: none; margin: 0; padding: 0; }
-        .sheet { box-shadow: none; border-radius: 0; max-width: 100%; border: none; }
-
-        /* Shrink sidebar for better proportion on A4 */
-        .side-col { width: 240px !important; flex-shrink: 0; background: #1a3352 !important; }
-        .side-top { padding: 24px 18px 18px; background: rgba(0,0,0,0.2) !important; }
-        .side-body { padding: 16px 18px 24px; }
+        @page { margin: 0; size: A4 portrait; }
+        body { 
+            background: #fff !important; 
+            margin: 0 !important; padding: 0 !important; 
+            -webkit-print-color-adjust: exact !important; 
+            print-color-adjust: exact !important; 
+        }
+        .sheet {
+            display: table !important;
+            table-layout: fixed !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important; padding: 0 !important;
+            background: #fff !important; 
+            box-shadow: none !important; border-radius: 0 !important;
+        }
+        .sheet::before, .sheet::after { display: none !important; }
+        
+        .side-col {
+            display: table-cell !important;
+            vertical-align: top !important;
+            width: 270px !important;
+            background-color: #0f172a !important;
+            background-image: none !important;
+            padding: 0 !important;
+            position: static !important;
+            box-shadow: none !important;
+            -webkit-clip-path: none !important; clip-path: none !important;
+        }
+        .side-inner {
+            position: static !important;
+            top: auto !important; bottom: auto !important; transform: none !important; margin: 0 !important;
+            height: auto !important;
+            width: 100% !important;
+        }
+        .side-top { padding: 24px 18px 18px !important; background: rgba(0,0,0,0.2) !important; border-radius: 0 !important; clip-path: none !important; }
+        .side-body { padding: 16px 18px 24px !important; }
         .avatar-wrapper { width: 80px; height: 80px; }
         .side-section-title { font-size: 8.5px; margin: 18px 0 10px; }
         .edu-name { font-size: 11.5px; }
@@ -442,11 +524,18 @@
         .skill-group { margin-bottom: 10px; }
         .objective-text { font-size: 10.5px; }
 
-        /* Main column gets more space */
-        .main-col { padding: 24px 28px; }
+        .main-col { 
+            display: table-cell !important;
+            vertical-align: top !important;
+            margin: 0 !important; 
+            padding: 24px 28px !important; 
+            background: #fff !important; 
+            width: auto !important;
+            max-width: none !important;
+        }
 
-        .job-item { page-break-inside: avoid; }
-        .summary-blocks { break-inside: avoid; }
+        .job-item, .skills-section, .edu-item, .cert-item, .lang-item, .contact-row { page-break-inside: avoid !important; break-inside: avoid !important; }
+        .summary-blocks { break-inside: avoid !important; }
         .export-btn { display: none !important; }
     }
 </style>
@@ -466,6 +555,7 @@
 
     <!-- ========== SIDEBAR ========== -->
     <div class="side-col">
+        <div class="side-inner">
         <div class="side-top">
             <div class="avatar-wrapper">
                 <img src="khaitq.png" alt="Avatar">
@@ -475,7 +565,7 @@
         <div class="side-body">
 
             <!-- Education -->
-            <div class="side-section-title">Education</div>
+            <div class="side-section-title"><span class="msi side-icon">school</span>Education</div>
             <div class="edu-card">
                 <div class="edu-name">Bachelor of Information Technology</div>
                 <div class="edu-school">Vietnam-Korea University of Information and Communication Technology</div>
@@ -488,7 +578,7 @@
             </div>
 
             <!-- Technical Skills -->
-            <div class="side-section-title">Technical Skills</div>
+            <div class="side-section-title"><span class="msi side-icon">code</span>Technical Skills</div>
             <div class="skill-group">
                 <div class="skill-group-label">Languages &amp; Frameworks</div>
                 <div class="skill-tags">
@@ -553,7 +643,7 @@
             </div>
 
             <!-- Languages -->
-            <div class="side-section-title">English Proficiency</div>
+            <div class="side-section-title"><span class="msi side-icon">translate</span>English Proficiency</div>
             <div class="lang-bars">
                 <div class="skill-bar-item">
                     <div class="skill-bar-label"><span>Reading</span><span>Advanced</span></div>
@@ -574,7 +664,7 @@
             </div>
 
             <!-- Career Objective -->
-            <div class="side-section-title">Career Objective</div>
+            <div class="side-section-title"><span class="msi side-icon">track_changes</span>Career Objective</div>
             <div class="objective-text">
                 <p>Lead engineering teams of <b>15&ndash;30 members</b>, building high-impact products in Enterprise SaaS, Fintech, and Logistics.</p>
                 <p>Integrate AI, Cloud-native &amp; Automation into production systems, improving operational efficiency by <b>3&ndash;5x</b>.</p>
@@ -582,6 +672,7 @@
             </div>
 
         </div>
+        </div><!-- /.side-inner -->
     </div>
 
     <!-- ========== MAIN COLUMN ========== -->
@@ -597,12 +688,12 @@
                 <div class="contact-item"><span class="contact-label">Phone:</span><span>+84 967 577 849</span></div>
                 <div class="contact-item"><span class="contact-label">Email:</span><span>khaitq.cntt@gmail.com</span></div>
                 <div class="contact-item"><span class="contact-label">Experience:</span><span>8+ years</span></div>
-                <div class="contact-item" style="flex-basis:100%"><span class="contact-label">Location:</span><span>Tower CT9, Unit CH03.07 &ndash; Bau Tram Social Housing, Hai Van Ward, Da Nang City</span></div>
+                <div class="contact-item" style="flex-basis: 100%;"><span class="contact-label">Location:</span><span>Tower CT9, Unit CH03.07 &ndash; Bau Tram Social Housing, Hai Van Ward, Da Nang City</span></div>
             </div>
         </div>
 
         <!-- Summary -->
-        <div class="section-title">Summary</div>
+        <div class="section-title"><span class="msi section-icon">person</span>Summary</div>
         <p class="summary-text">Over <b>8 years of experience</b> in software development (Fullstack, DevOps) and technical project management. Participated in and led <b>16+ projects</b> (teams of 2&ndash;20 people) across diverse domains: E-commerce, Enterprise SaaS, Fintech, Logistics, E-learning, and Blockchain. Known for <b>translating complex technical challenges into clear business outcomes</b> &mdash; combining a hands-on engineering mindset with structured leadership to consistently deliver on time and at scale.</p>
         <div class="summary-blocks">
             <div class="summary-block">
@@ -628,7 +719,7 @@
         </div>
 
         <!-- AI Strategy -->
-        <div class="section-title">AI Strategy &amp; Innovation</div>
+        <div class="section-title"><span class="msi section-icon">smart_toy</span>AI Strategy &amp; Innovation</div>
         <div class="ai-section">
             <div class="ai-intro">Proactively applying <b>AI to the software development lifecycle</b>, proficient with Claude Code, Cursor AI, and Vibe Coding methodologies:</div>
             <ul class="ai-list">
@@ -641,7 +732,7 @@
         </div>
 
         <!-- Experience -->
-        <div class="section-title">Experience</div>
+        <div class="section-title"><span class="msi section-icon">work</span>Experience</div>
 
         <!-- MIMO -->
         <div class="job-item">
@@ -1161,11 +1252,91 @@ function exportPDF() {
     }, 150);
 }
 
-// Hide button on mobile since print-to-PDF works better on desktop
-if (window.innerWidth <= 768) {
-    const btn = document.getElementById('exportBtn');
-    btn.style.display = 'none';
-}
+// Export button visible on all screen sizes
+
+// Jitter-free Smart Sticky Sidebar
+(function() {
+    var sideInner = document.querySelector('.side-inner');
+    var sideCol = document.querySelector('.side-col');
+    if (!sideInner || !sideCol) return;
+
+    var stickyTop = 24;
+    var stickyBottom = 24;
+    var lastScrollY = window.scrollY;
+    var state = ''; 
+    var currentTop = 0; 
+
+    function init() {
+        if (window.innerWidth <= 768) {
+            sideInner.style.position = '';
+            sideInner.style.top = '';
+            state = '';
+            return;
+        }
+        var vh = window.innerHeight;
+        var sh = sideInner.offsetHeight;
+
+        if (sh + stickyTop + stickyBottom <= vh) {
+            sideInner.style.position = 'sticky';
+            sideInner.style.top = stickyTop + 'px';
+            state = 'sticky-top-fixed';
+            return;
+        }
+        
+        sideInner.style.position = 'sticky';
+        sideInner.style.top = stickyTop + 'px';
+        state = 'sticky-top';
+    }
+
+    function update() {
+        if (window.innerWidth <= 768) return;
+
+        var scrollY = window.scrollY;
+        var delta = scrollY - lastScrollY;
+        lastScrollY = scrollY;
+
+        if (delta === 0 || state === 'sticky-top-fixed') return;
+
+        var vh = window.innerHeight;
+        var sh = sideInner.offsetHeight;
+
+        var colRect = sideCol.getBoundingClientRect();
+        var innerRect = sideInner.getBoundingClientRect();
+        
+        if (delta > 0) { // Scrolling DOWN
+            if (state === 'sticky-top') {
+                currentTop = innerRect.top - colRect.top;
+                sideInner.style.position = 'relative';
+                sideInner.style.top = currentTop + 'px';
+                state = 'relative';
+            } else if (state === 'relative') {
+                if (innerRect.bottom <= vh - stickyBottom) {
+                    sideInner.style.position = 'sticky';
+                    sideInner.style.top = (vh - stickyBottom - sh) + 'px';
+                    state = 'sticky-bottom';
+                }
+            }
+        } else if (delta < 0) { // Scrolling UP
+            if (state === 'sticky-bottom') {
+                currentTop = innerRect.top - colRect.top;
+                sideInner.style.position = 'relative';
+                sideInner.style.top = currentTop + 'px';
+                state = 'relative';
+            } else if (state === 'relative') {
+                if (innerRect.top >= stickyTop) {
+                    sideInner.style.position = 'sticky';
+                    sideInner.style.top = stickyTop + 'px';
+                    state = 'sticky-top';
+                }
+            }
+        }
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', function() { init(); update(); });
+    // Small timeout to ensure layout calculations are complete before init
+    setTimeout(function() { init(); update(); }, 150);
+})();
 </script>
 
 </body>
