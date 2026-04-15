@@ -336,19 +336,131 @@
 
     b { font-weight: 600; }
 
+    /* ===== MOBILE ===== */
+    @media screen and (max-width: 768px) {
+        body { padding: 0; }
+
+        .sheet {
+            flex-direction: column;
+            border-radius: 0;
+            max-width: 100%;
+        }
+
+        .side-col {
+            width: 100%;
+            flex-shrink: unset;
+        }
+
+        .side-top { padding: 28px 20px 20px; }
+
+        .side-body { padding: 16px 20px 24px; }
+
+        .main-col {
+            padding: 24px 20px;
+        }
+
+        h1.name { font-size: 22px; }
+        h2.title { font-size: 13px; }
+        .tagline { font-size: 11px; }
+
+        .summary-blocks {
+            grid-template-columns: 1fr;
+        }
+
+        .resp-cols {
+            grid-template-columns: 1fr;
+            gap: 10px 0;
+        }
+
+        .job-header {
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .job-date { align-self: flex-start; }
+
+        .job-meta-row { flex-wrap: wrap; gap: 4px; }
+
+        .job-team-size { margin-left: 0; }
+
+        .resp-list[style*="columns"] {
+            columns: 1 !important;
+        }
+    }
+
+    /* ===== EXPORT BUTTON ===== */
+    .export-btn {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 13px 22px;
+        background: linear-gradient(135deg, #1e3a5f 0%, #3498DB 100%);
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        font-size: 13.5px;
+        font-weight: 600;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 6px 24px rgba(52,152,219,0.45), 0 2px 8px rgba(0,0,0,0.2);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+        letter-spacing: 0.2px;
+    }
+    .export-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 32px rgba(52,152,219,0.55), 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .export-btn:active { transform: translateY(0); }
+    .export-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .export-btn.loading { opacity: 0.75; pointer-events: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .export-btn.loading svg { animation: spin 0.8s linear infinite; }
+
     /* ===== PRINT ===== */
     @media print {
         body { background: none; margin: 0; padding: 0; }
         .sheet { box-shadow: none; border-radius: 0; max-width: 100%; border: none; }
-        .main-col { padding: 28px 32px; }
-        .side-col { background: #1a3352 !important; }
-        .side-top { background: rgba(0,0,0,0.2) !important; }
+
+        /* Shrink sidebar for better proportion on A4 */
+        .side-col { width: 240px !important; flex-shrink: 0; background: #1a3352 !important; }
+        .side-top { padding: 24px 18px 18px; background: rgba(0,0,0,0.2) !important; }
+        .side-body { padding: 16px 18px 24px; }
+        .avatar-wrapper { width: 80px; height: 80px; }
+        .side-section-title { font-size: 8.5px; margin: 18px 0 10px; }
+        .edu-name { font-size: 11.5px; }
+        .edu-school { font-size: 10px; }
+        .edu-meta { font-size: 10px; }
+        .cert-name { font-size: 11px; }
+        .cert-desc { font-size: 10px; }
+        .skill-tag { font-size: 9.5px; padding: 2px 7px; }
+        .skill-group-label { font-size: 9.5px; }
+        .skill-group { margin-bottom: 10px; }
+        .objective-text { font-size: 10.5px; }
+
+        /* Main column gets more space */
+        .main-col { padding: 24px 28px; }
+
         .job-item { page-break-inside: avoid; }
         .summary-blocks { break-inside: avoid; }
+        .export-btn { display: none !important; }
     }
 </style>
 </head>
 <body>
+
+<!-- Export PDF Button -->
+<button class="export-btn" id="exportBtn" onclick="exportPDF()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v13M7 11l5 5 5-5"/>
+        <path d="M5 20h14"/>
+    </svg>
+    Export PDF
+</button>
+
 <div class="sheet">
 
     <!-- ========== SIDEBAR ========== -->
@@ -1015,5 +1127,41 @@
 
     </div>
 </div>
+
+<script>
+function exportPDF() {
+    const btn = document.getElementById('exportBtn');
+    // Show loading state
+    btn.classList.add('loading');
+    btn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+        </svg>
+        Preparing...
+    `;
+    // Small delay so browser renders loading state before print dialog blocks
+    setTimeout(() => {
+        window.print();
+        // Restore button after print dialog closes
+        setTimeout(() => {
+            btn.classList.remove('loading');
+            btn.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3v13M7 11l5 5 5-5"/>
+                    <path d="M5 20h14"/>
+                </svg>
+                Export PDF
+            `;
+        }, 500);
+    }, 150);
+}
+
+// Hide button on mobile since print-to-PDF works better on desktop
+if (window.innerWidth <= 768) {
+    const btn = document.getElementById('exportBtn');
+    btn.style.display = 'none';
+}
+</script>
+
 </body>
 </html>
