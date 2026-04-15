@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRẦN QUANG KHẢI - Hồ Sơ Xin Việc</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        background-color: #DDE3EA;
+        background-image: radial-gradient(#b8c4d0 1.5px, transparent 1.5px);
+        background-size: 28px 28px;
+        font-family: 'Inter', sans-serif;
+        padding: 40px 20px;
+        color: #1e293b;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* ===== SHEET WRAPPER ===== */
+    .sheet {
+        max-width: 1060px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.08);
+        display: flex;
+        overflow: hidden;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .side-col {
+        width: 310px;
+        flex-shrink: 0;
+        background: linear-gradient(175deg, #1a3352 0%, #1e3d63 60%, #162d4a 100%);
+        color: #e2e8f0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .side-top {
+        padding: 40px 30px 30px;
+        background: rgba(0,0,0,0.15);
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .avatar-wrapper {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        margin: 0 auto 18px;
+        overflow: hidden;
+        border: 3px solid rgba(52,152,219,0.6);
+        box-shadow: 0 0 0 4px rgba(52,152,219,0.15);
+    }
+    .avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+    .side-body { padding: 24px 28px 32px; flex: 1; }
+
+    /* ===== SIDEBAR SECTION TITLE ===== */
+    .side-section-title {
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: #3498DB;
+        margin: 28px 0 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .side-section-title::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: rgba(52,152,219,0.3);
+    }
+    .side-section-title:first-child { margin-top: 0; }
+
+    /* ===== EDUCATION CARD ===== */
+    .edu-card { margin-bottom: 16px; }
+    .edu-name { font-size: 13px; font-weight: 600; color: #f1f5f9; margin-bottom: 3px; line-height: 1.4; }
+    .edu-school { font-size: 11.5px; color: #94a3b8; margin-bottom: 2px; }
+    .edu-meta { font-size: 11px; color: #64748b; }
+    .edu-grade { display: inline-block; margin-top: 5px; font-size: 11px; font-weight: 600; color: #3498DB; background: rgba(52,152,219,0.12); padding: 2px 8px; border-radius: 3px; }
+
+    /* ===== CERT ===== */
+    .cert-item { margin-bottom: 12px; }
+    .cert-name { font-size: 12.5px; font-weight: 600; color: #f1f5f9; margin-bottom: 3px; line-height: 1.35; }
+    .cert-desc { font-size: 11px; color: #94a3b8; line-height: 1.45; }
+    .cert-link { color: #3498DB; text-decoration: none; font-weight: 600; }
+
+    /* ===== SKILL TAGS ===== */
+    .skill-group { margin-bottom: 14px; }
+    .skill-group-label { font-size: 10.5px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 7px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .skill-tag {
+        font-size: 10.5px;
+        padding: 3px 9px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 3px;
+        color: #cbd5e1;
+        line-height: 1.4;
+    }
+    .skill-tag.strong {
+        background: rgba(52,152,219,0.15);
+        border-color: rgba(52,152,219,0.35);
+        color: #e2e8f0;
+        font-weight: 500;
+    }
+
+    /* ===== LANGUAGE BARS ===== */
+    .lang-bars { display: flex; flex-direction: column; gap: 9px; }
+    .skill-bar-item {}
+    .skill-bar-label { display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 500; margin-bottom: 4px; color: #cbd5e1; }
+    .skill-bar-label span:last-child { color: #64748b; }
+    .skill-bar-outer { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; }
+    .skill-bar-inner { height: 100%; background: linear-gradient(90deg, #2980b9, #3498DB); border-radius: 2px; }
+
+    /* ===== CAREER OBJECTIVE ===== */
+    .objective-text { font-size: 11.5px; color: #94a3b8; line-height: 1.65; }
+    .objective-text p { margin-bottom: 8px; }
+    .objective-text p:last-child { margin-bottom: 0; }
+
+    /* ===== MAIN COLUMN ===== */
+    .main-col {
+        flex: 1;
+        padding: 40px 42px;
+        min-width: 0;
+        background: #fff;
+    }
+
+    /* ===== NAME / TITLE HEADER ===== */
+    .cv-header { margin-bottom: 22px; border-bottom: 2px solid #f1f5f9; padding-bottom: 20px; }
+    h1.name {
+        font-size: 30px;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        line-height: 1.1;
+        margin-bottom: 6px;
+    }
+    h2.title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #1e3a5f;
+        margin-bottom: 5px;
+        letter-spacing: 0.2px;
+    }
+    .tagline {
+        font-size: 12px;
+        font-weight: 400;
+        color: #3498DB;
+        margin-bottom: 14px;
+        letter-spacing: 0.3px;
+    }
+
+    /* ===== CONTACT GRID ===== */
+    .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 20px;
+    }
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 5px;
+        font-size: 11.5px;
+        color: #475569;
+    }
+    .contact-label {
+        font-weight: 600;
+        color: #334155;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .contact-sep { color: #cbd5e1; }
+
+    /* ===== MAIN SECTION TITLES ===== */
+    .section-title {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #3498DB;
+        margin: 28px 0 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-title::after {
+        content: '';
+        flex: 1;
+        height: 1.5px;
+        background: linear-gradient(90deg, #e2e8f0, transparent);
+    }
+
+    /* ===== SUMMARY ===== */
+    .summary-text { font-size: 13px; line-height: 1.75; color: #334155; margin-bottom: 14px; }
+    .summary-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start; }
+    .summary-block--wide { grid-column: 1 / -1; }
+    .summary-block {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-left: 3px solid #3498DB;
+        border-radius: 0 6px 6px 0;
+        padding: 10px 12px;
+    }
+    .summary-category { display: block; font-size: 9.5px; font-weight: 700; color: #3498DB; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+    .summary-value { font-size: 12px; color: #334155; line-height: 1.5; }
+
+    /* ===== AI SECTION ===== */
+    .ai-section {
+        background: linear-gradient(135deg, #f0f7ff 0%, #f8fafc 100%);
+        border: 1px solid #bfdbfe;
+        border-left: 3px solid #3498DB;
+        border-radius: 0 8px 8px 0;
+        padding: 14px 16px;
+        margin-bottom: 6px;
+    }
+    .ai-intro { font-size: 12.5px; color: #1e3a5f; margin-bottom: 10px; line-height: 1.6; }
+    .ai-list { margin: 0; padding-left: 16px; }
+    .ai-list li { font-size: 12px; color: #334155; margin-bottom: 5px; line-height: 1.5; }
+    .ai-list li:last-child { margin-bottom: 0; }
+
+    /* ===== EXPERIENCE ITEMS ===== */
+    .job-item {
+        margin-bottom: 22px;
+        padding-bottom: 22px;
+        border-bottom: 1px solid #f1f5f9;
+        page-break-inside: avoid;
+    }
+    .job-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 4px;
+    }
+    .job-role {
+        font-size: 15px;
+        font-weight: 700;
+        color: #0f172a;
+        line-height: 1.3;
+    }
+    .job-date {
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #fff;
+        background: #3498DB;
+        padding: 2px 10px;
+        border-radius: 20px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .job-meta-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+    .job-company {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: #3498DB;
+    }
+    .job-meta-sep { color: #cbd5e1; font-size: 12px; }
+    .job-position {
+        font-size: 12px;
+        color: #64748b;
+        font-style: italic;
+    }
+    .job-team-size {
+        margin-left: auto;
+        font-size: 11px;
+        color: #94a3b8;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        padding: 1px 8px;
+        border-radius: 10px;
+    }
+
+    .job-desc {
+        font-size: 12px;
+        color: #475569;
+        line-height: 1.55;
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        background: #f8fafc;
+        border-left: 2px solid #e2e8f0;
+        border-radius: 0 4px 4px 0;
+    }
+    .job-desc-label { font-weight: 600; color: #334155; }
+
+    .resp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+    .resp-section { margin-bottom: 4px; }
+    .resp-title {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #64748b;
+        margin-bottom: 5px;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #f1f5f9;
+    }
+    .resp-list { margin: 0; padding-left: 14px; }
+    .resp-list li {
+        font-size: 12px;
+        color: #334155;
+        margin-bottom: 4px;
+        line-height: 1.45;
+    }
+    .resp-list li:last-child { margin-bottom: 0; }
+
+    .job-tech {
+        font-size: 11.5px;
+        color: #475569;
+        margin-top: 10px;
+        line-height: 1.55;
+    }
+    .job-tech strong { color: #1e293b; font-weight: 600; font-style: normal; }
+
+    .resp-single .resp-list { columns: unset; }
+
+    b { font-weight: 600; }
+
+    /* ===== MOBILE ===== */
+    @media screen and (max-width: 768px) {
+        body { padding: 0; }
+
+        .sheet {
+            flex-direction: column;
+            border-radius: 0;
+            max-width: 100%;
+        }
+
+        .side-col {
+            width: 100%;
+            flex-shrink: unset;
+        }
+
+        .side-top { padding: 28px 20px 20px; }
+
+        .side-body { padding: 16px 20px 24px; }
+
+        .main-col {
+            padding: 24px 20px;
+        }
+
+        h1.name { font-size: 22px; }
+        h2.title { font-size: 13px; }
+        .tagline { font-size: 11px; }
+
+        .summary-blocks {
+            grid-template-columns: 1fr;
+        }
+
+        .resp-cols {
+            grid-template-columns: 1fr;
+            gap: 10px 0;
+        }
+
+        .job-header {
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .job-date { align-self: flex-start; }
+
+        .job-meta-row { flex-wrap: wrap; gap: 4px; }
+
+        .job-team-size { margin-left: 0; }
+
+        .resp-list[style*="columns"] {
+            columns: 1 !important;
+        }
+    }
+
+    /* ===== EXPORT BUTTON ===== */
+    .export-btn {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 13px 22px;
+        background: linear-gradient(135deg, #1e3a5f 0%, #3498DB 100%);
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        font-size: 13.5px;
+        font-weight: 600;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 6px 24px rgba(52,152,219,0.45), 0 2px 8px rgba(0,0,0,0.2);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+        letter-spacing: 0.2px;
+    }
+    .export-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 32px rgba(52,152,219,0.55), 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .export-btn:active { transform: translateY(0); }
+    .export-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .export-btn.loading { opacity: 0.75; pointer-events: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .export-btn.loading svg { animation: spin 0.8s linear infinite; }
+
+    /* ===== PRINT ===== */
+    @media print {
+        body { background: none; margin: 0; padding: 0; }
+        .sheet { box-shadow: none; border-radius: 0; max-width: 100%; border: none; }
+
+        /* Shrink sidebar for better proportion on A4 */
+        .side-col { width: 240px !important; flex-shrink: 0; background: #1a3352 !important; }
+        .side-top { padding: 24px 18px 18px; background: rgba(0,0,0,0.2) !important; }
+        .side-body { padding: 16px 18px 24px; }
+        .avatar-wrapper { width: 80px; height: 80px; }
+        .side-section-title { font-size: 8.5px; margin: 18px 0 10px; }
+        .edu-name { font-size: 11.5px; }
+        .edu-school { font-size: 10px; }
+        .edu-meta { font-size: 10px; }
+        .cert-name { font-size: 11px; }
+        .cert-desc { font-size: 10px; }
+        .skill-tag { font-size: 9.5px; padding: 2px 7px; }
+        .skill-group-label { font-size: 9.5px; }
+        .skill-group { margin-bottom: 10px; }
+        .objective-text { font-size: 10.5px; }
+
+        /* Main column gets more space */
+        .main-col { padding: 24px 28px; }
+
+        .job-item { page-break-inside: avoid; }
+        .summary-blocks { break-inside: avoid; }
+        .export-btn { display: none !important; }
+    }
+</style>
+</head>
+<body>
+
+<!-- Xuất PDF Button -->
+<button class="export-btn" id="exportBtn" onclick="exportPDF()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v13M7 11l5 5 5-5"/>
+        <path d="M5 20h14"/>
+    </svg>
+    Xuất PDF
+</button>
+
+<div class="sheet">
+
+    <!-- ========== SIDEBAR ========== -->
+    <div class="side-col">
+        <div class="side-top">
+            <div class="avatar-wrapper">
+                <img src="khaitq.png" alt="Avatar">
+            </div>
+        </div>
+
+        <div class="side-body">
+
+            <!-- Học Vấn -->
+            <div class="side-section-title">Học Vấn</div>
+            <div class="edu-card">
+                <div class="edu-name">Cử Nhân Công Nghệ Thông Tin</div>
+                <div class="edu-school">Trường Đại học Công nghệ Thông tin và Truyền thông Việt - Hàn</div>
+                <div class="edu-meta">Khóa 17 &middot; 2014 &ndash; 2018</div>
+                <span class="edu-grade">Xếp loại: Giỏi</span>
+            </div>
+            <div class="cert-item">
+                <div class="cert-name">AWS Certified Solutions Architect &ndash; Associate</div>
+                <div class="cert-desc">Chứng nhận thiết kế kiến trúc cloud trên AWS theo Well-Architected Framework <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/a71cba9aba554927a0dc51658831899b" target="_blank" class="cert-link">[Verify]</a></div>
+            </div>
+
+            <!-- Kỹ Năng Kỹ Thuật -->
+            <div class="side-section-title">Kỹ Năng Kỹ Thuật</div>
+            <div class="skill-group">
+                <div class="skill-group-label">Ngôn Ngữ &amp; Framework</div>
+                <div class="skill-tags">
+                    <span class="skill-tag strong">JavaScript</span>
+                    <span class="skill-tag strong">TypeScript</span>
+                    <span class="skill-tag strong">NodeJS</span>
+                    <span class="skill-tag strong">NestJS</span>
+                    <span class="skill-tag strong">ExpressJS</span>
+                    <span class="skill-tag strong">PHP</span>
+                    <span class="skill-tag strong">Laravel</span>
+                    <span class="skill-tag strong">VueJS</span>
+                    <span class="skill-tag strong">ReactJS</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Cơ Sở Dữ Liệu</div>
+                <div class="skill-tags">
+                    <span class="skill-tag strong">MySQL</span>
+                    <span class="skill-tag strong">PostgreSQL</span>
+                    <span class="skill-tag strong">Redis</span>
+                    <span class="skill-tag strong">DynamoDB</span>
+                    <span class="skill-tag strong">MongoDB</span>
+                    <span class="skill-tag strong">LevelDB</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Cloud &amp; DevOps</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">GCP</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Terraform</span>
+                    <span class="skill-tag">Prometheus</span>
+                    <span class="skill-tag">Grafana</span>
+                    <span class="skill-tag">GitHub Actions</span>
+                    <span class="skill-tag">GitLab CI</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Blockchain</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">ERC-20 / BEP-20</span>
+                    <span class="skill-tag">MPC Wallets</span>
+                    <span class="skill-tag">Smart Contracts</span>
+                    <span class="skill-tag">On-chain Indexing</span>
+                    <span class="skill-tag">EVM Networks</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">AI &amp; Phương Pháp Làm Việc</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Claude Code</span>
+                    <span class="skill-tag">Cursor AI</span>
+                    <span class="skill-tag">Vibe Coding</span>
+                    <span class="skill-tag">OpenAI API</span>
+                    <span class="skill-tag">Agile / Scrum</span>
+                    <span class="skill-tag">Kanban</span>
+                    <span class="skill-tag">Jira</span>
+                    <span class="skill-tag">Confluence</span>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="side-section-title">Trình Độ Tiếng Anh</div>
+            <div class="lang-bars">
+                <div class="skill-bar-item">
+                    <div class="skill-bar-label"><span>Đọc</span><span>Nâng cao</span></div>
+                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width:90%"></div></div>
+                </div>
+                <div class="skill-bar-item">
+                    <div class="skill-bar-label"><span>Viết</span><span>Trên Trung cấp</span></div>
+                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width:80%"></div></div>
+                </div>
+                <div class="skill-bar-item">
+                    <div class="skill-bar-label"><span>Nghe</span><span>Trung cấp</span></div>
+                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width:70%"></div></div>
+                </div>
+                <div class="skill-bar-item">
+                    <div class="skill-bar-label"><span>Nói</span><span>Trung cấp</span></div>
+                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width:70%"></div></div>
+                </div>
+            </div>
+
+            <!-- Mục Tiêu Nghề Nghiệp -->
+            <div class="side-section-title">Mục Tiêu Nghề Nghiệp</div>
+            <div class="objective-text">
+                <p>Lãnh đạo đội ngũ kỹ thuật <b>15–30 thành viên</b>, xây dựng sản phẩm tạo ra giá trị lớn trong các lĩnh vực Enterprise SaaS, Fintech và Logistics.</p>
+                <p>Tích hợp AI, Cloud-native &amp; Tự động hóa vào hệ thống thực tế, cải thiện hiệu suất vận hành <b>3–5 lần</b>.</p>
+                <p>Phát triển thành <b>Quản Lý Dự Án Kỹ Thuật</b> dày dạn kinh nghiệm — cầu nối tối ưu giữa Kinh doanh &amp; Kỹ thuật.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========== MAIN COLUMN ========== -->
+    <div class="main-col">
+
+        <!-- Name & Contact -->
+        <div class="cv-header">
+            <h1 class="name">Khai Tran Quang</h1>
+            <h2 class="title">Quản Lý Dự Án Kỹ Thuật</h2>
+            <div class="tagline">Trưởng Nhóm Kỹ Thuật &nbsp;&middot;&nbsp; Fullstack (Node.js / PHP &middot; NestJS / Laravel) &nbsp;&middot;&nbsp; DevOps &amp; AWS &nbsp;&middot;&nbsp; Blockchain</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="contact-label">Ngày Sinh:</span><span>26/12/1996</span></div>
+                <div class="contact-item"><span class="contact-label">Điện Thoại:</span><span>+84 967 577 849</span></div>
+                <div class="contact-item"><span class="contact-label">Email:</span><span>khaitq.cntt@gmail.com</span></div>
+                <div class="contact-item"><span class="contact-label">Kinh Nghiệm:</span><span>8+ năm</span></div>
+                <div class="contact-item" style="flex-basis:100%"><span class="contact-label">Địa Chỉ:</span><span>Tháp CT9, Căn CH03.07 – NOXH Bàu Tràm, Phường Hòa Vân, Đà Nẵng</span></div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="section-title">Tổng Quan</div>
+        <p class="summary-text">Hơn <b>8 năm kinh nghiệm</b> phát triển phần mềm (Fullstack, DevOps) và quản lý dự án kỹ thuật. Tham gia và dẫn dắt <b>16+ dự án</b> (nhóm 2–20 người) trong nhiều lĩnh vực: E-commerce, Enterprise SaaS, Fintech, Logistics, E-learning và Blockchain. Nổi bật với khả năng <b>chuyển hóa thách thức kỹ thuật phức tạp thành kết quả kinh doanh rõ ràng</b> — kết hợp tư duy kỹ thuật thực chiến và phong cách lãnh đạo có cấu trúc để đảm bảo bàn giao đúng hạn, đúng chất lượng.</p>
+        <div class="summary-blocks">
+            <div class="summary-block">
+                <span class="summary-category">Lộ Trình Sự Nghiệp</span>
+                <span class="summary-value">Freelance &rarr; BAP (2018&ndash;2021) &rarr; STI (2021&ndash;2022) &rarr; <b>Napa Global (2022&ndash;Hiện tại)</b></span>
+            </div>
+            <div class="summary-block">
+                <span class="summary-category">Chuyên Môn Cốt Lõi</span>
+                <span class="summary-value">Agile/Scrum &middot; Microservices &middot; Fullstack (Node/PHP/Vue/React) &middot; DevOps &amp; AWS &middot; Blockchain</span>
+            </div>
+            <div class="summary-block">
+                <span class="summary-category">Hiệu Quả Nhờ AI</span>
+                <span class="summary-value">Tự động hóa <b>~70% boilerplate</b> &middot; Giảm <b>~90%</b> thời gian viết unit test &middot; Rút ngắn Concept&rarr;MVP <b>~80%</b></span>
+            </div>
+            <div class="summary-block">
+                <span class="summary-category">Mục Tiêu Chiến Lược</span>
+                <span class="summary-value">Advance as a <b>Quản Lý Dự Án Kỹ Thuật</b> leading <b>15&ndash;30+ engineers</b>, bridging Business &amp; Engineering</span>
+            </div>
+            <div class="summary-block summary-block--wide">
+                <span class="summary-category">Được Biết Đến Vì</span>
+                <span class="summary-value"><b>Bàn giao đúng hạn</b> 16+ dự án &middot; <b>Mentoring</b> fresher dev (3 người được thăng cấp) &middot; <b>PM thực chiến</b> vẫn có thể architect &amp; code &middot; <b>Bình tĩnh dưới áp lực</b> — xử lý 15+ blocker/sprint &middot; <b>Giao tiếp rõ ràng</b> giữa Kỹ thuật &amp; Kinh doanh</span>
+            </div>
+        </div>
+
+        <!-- AI Strategy -->
+        <div class="section-title">Chiến Lược AI &amp; Đổi Mới</div>
+        <div class="ai-section">
+            <div class="ai-intro">Chủ động ứng dụng <b>AI vào vòng đời phát triển phần mềm</b>, thành thạo Claude Code, Cursor AI và phương pháp Vibe Coding:</div>
+            <ul class="ai-list">
+                <li>Dùng <b>Claude Code</b> tự động hóa viết test &rarr; giảm thời gian viết unit test <b>~90%</b>/module (ví dụ: từ 4h xuống 20 phút cho một service layer)</li>
+                <li>Áp dụng <b>Vibe Coding</b> để prototype nhanh &rarr; rút ngắn từ Concept đến MVP <b>~80%</b> (ví dụ: luồng onboarding MIMO: ước tính 2 tuần, hoàn thành trong 4 ngày)</li>
+                <li>Tự động hóa <b>~70% code CRUD boilerplate</b>, giảm thời gian debug &amp; sửa lỗi <b>~90%</b> tại các dự án Napa</li>
+                <li>Dùng AI phân tích codebase, tái cấu trúc code cũ và tối ưu pipeline CI/CD &rarr; deploy time <b>45 phút &rarr; 8 phút</b> (Niko SoulBound)</li>
+                <li><b>Tích hợp AI APIs (OpenAI, Claude API)</b>: chatbot hướng đến người dùng, phân tích dữ liệu giao dịch tự động, sinh nội dung thông minh</li>
+            </ul>
+        </div>
+
+        <!-- Experience -->
+        <div class="section-title">Kinh Nghiệm Làm Việc</div>
+
+        <!-- MIMO -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">MIMO &ndash; Financial App (USDT &harr; VND)</span>
+                <span class="job-date">May 2025 &ndash; Hiện tại</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Quản Lý Dự Án Kỹ Thuật / Backend Developer (PHP, Vue.js, Node.js)</span>
+                <span class="job-team-size">&#128101; 10 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Ứng dụng tài chính cho phép chuyển đổi USDT &harr; VND hợp pháp, tích hợp ví điện tử và quy trình tuân thủ pháp lý đầy đủ (KYC/AML).</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Quản Lý Dự Án</div>
+                    <ul class="resp-list">
+                        <li>Chu kỳ sprint 2 tuần, quản lý backlog <b>150+ user story</b></li>
+                        <li>Phối hợp liên nhóm: Backend, Mobile (RN), Frontend, QA</li>
+                        <li>Quản lý rủi ro tuân thủ (KYC/AML), báo cáo vấn đề pháp lý lên stakeholder</li>
+                        <li>Báo cáo tiến độ hàng tuần đến Product Owner và ban lãnh đạo</li>
+                        <li>Xử lý mở rộng phạm vi và yêu cầu thay đổi từ phía kinh doanh</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Kỹ Thuật</div>
+                    <ul class="resp-list">
+                        <li>Thiết kế hệ thống xử lý <b>500+ giao dịch/ngày</b> trong đổi tiền fiat-crypto</li>
+                        <li>Thực hiện code review để đảm bảo chuẩn mực lập trình và bảo mật hệ thống</li>
+                        <li>Giám sát triển khai, duy trì <b>99.5% uptime</b></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> PHP (Laravel), TypeScript, Node.js (NestJS), Vue.js, React Native &middot; MySQL, Redis &middot; Docker &middot; AWS (SES, S3, RDS, KMS, VPC, ECS, CloudWatch, Secrets Manager, Route53&hellip;) &middot; Blockchain</div>
+        </div>
+
+        <!-- Xwallet -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Xwallet &ndash; MPC Wallet System</span>
+                <span class="job-date">Apr 2024 &ndash; Apr 2025</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Sub Quản Lý Dự Án Kỹ Thuật / Lập Trình Viên Backend (Node.js, Java) / DevOps</span>
+                <span class="job-team-size">&#128101; 15 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Ví MPC sử dụng key sharding để loại bỏ điểm lỗi đơn, cho phép giao dịch đa chuỗi bảo mật cao với khả năng mở rộng linh hoạt.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Quản Lý Dự Án (Sub PM)</div>
+                    <ul class="resp-list">
+                        <li>Điều phối sub-team 6 người (trong tổng 15), báo cáo trực tiếp cho PM</li>
+                        <li>Quản lý backlog và phân công task cho sub-team Backend/DevOps</li>
+                        <li>Theo dõi tiến độ sprint; xác định và giải quyết <b>10+ blocker/sprint</b></li>
+                        <li>Phối hợp với sub-team Frontend &amp; Mobile để đảm bảo tích hợp API</li>
+                        <li>Tổ chức phiên code review và chia sẻ kiến thức hàng tuần</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Kỹ Thuật</div>
+                    <ul class="resp-list">
+                        <li>Thiết kế kiến trúc MPC hỗ trợ <b>5+ chuỗi tương thích EVM</b> và quản lý khóa</li>
+                        <li>Triển khai tạo khóa phân tán và ký giao dịch, đạt <b>99.9% uptime</b></li>
+                        <li>Tích hợp hỗ trợ đa chuỗi trên các mạng tương thích EVM</li>
+                        <li>Quản lý hạ tầng, giám sát và triển khai</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> TypeScript, Node.js (NestJS), Java &middot; Redis, LevelDB, DynamoDB &middot; Docker &middot; Prometheus, Grafana &middot; AWS (SES, S3, DynamoDB, KMS, VPC, ECS, CloudWatch, Lambda, SNS&hellip;) &middot; Blockchain (MPC Wallets, EVM Networks)</div>
+        </div>
+
+        <!-- Amoda -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Amoda &ndash; Inventory &amp; Warehouse Management</span>
+                <span class="job-date">Jun 2023 &ndash; Mar 2024</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Quản Lý Dự Án Kỹ Thuật / Backend Developer (NestJS, React.js) / DevOps</span>
+                <span class="job-team-size">&#128101; 20 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Hệ thống quản lý kho hàng theo dõi xuất/nhập và tính toán tồn kho thời gian thực cho <b>10.000+ SKU</b>.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Quản Lý Dự Án</div>
+                    <ul class="resp-list">
+                        <li>Quản lý nhóm 20 người chia thành 3 sub-team (Backend, Frontend, QA), sprint 2 tuần</li>
+                        <li>Bàn giao <b>4 phiên bản lớn đúng hạn</b> trong 10 tháng</li>
+                        <li>Báo cáo tiến độ hàng tuần; xử lý <b>15+ yêu cầu thay đổi</b> và quản lý phạm vi</li>
+                        <li>Ran retrospectives, mentored <b>5 junior developers</b>, and onboarded new thành viên</li>
+                        <li>Quản lý rủi ro nhất quán dữ liệu trong hệ thống kho phức tạp</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Kỹ Thuật</div>
+                    <ul class="resp-list">
+                        <li>Thiết kế hệ thống xử lý <b>10.000+ SKU</b> với theo dõi tồn kho thời gian thực</li>
+                        <li>Thực hiện code review và định hướng kỹ thuật cho nhóm</li>
+                        <li>Giám sát triển khai; tối ưu query từ <b>3 giây xuống 200ms</b></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> TypeScript, Node.js (NestJS), React.js &middot; MySQL, Redis &middot; Docker &middot; GitHub Actions &middot; AWS (SES, S3, RDS, VPC, ECS, CloudWatch, Route53, ALB&hellip;)</div>
+        </div>
+
+        <!-- Cross Value Scan -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Cross Value Scan &ndash; Blockchain Explorer &amp; Scanning</span>
+                <span class="job-date">Jan 2023 &ndash; May 2023</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Quản Lý Dự Án Kỹ Thuật / Backend Developer (Node.js, Elixir) / DevOps</span>
+                <span class="job-team-size">&#128101; 12 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Nền tảng blockchain explorer &amp; scanning theo dõi giao dịch, phát hiện block mới, tương tác với smart contract — hiển thị dữ liệu on-chain thời gian thực với <b>2M+ block</b> được index.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Quản Lý Dự Án</div>
+                    <ul class="resp-list">
+                        <li>Quản lý nhóm 12 người; dẫn dắt sprint planning và phân công task</li>
+                        <li>Phối hợp nhóm Backend (Node.js) &amp; Elixir (indexer) để tích hợp mượt mà</li>
+                        <li>Quản lý rủi ro hiệu suất &amp; toàn vẹn dữ liệu cho <b>2M+ block</b> đã index</li>
+                        <li>Báo cáo tiến độ và demo mỗi sprint — <b>100% bàn giao đúng hạn</b></li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Kỹ Thuật</div>
+                    <ul class="resp-list">
+                        <li>Thiết kế kiến trúc event-driven cho xử lý block và giao dịch</li>
+                        <li>Chỉ đạo giải pháp kỹ thuật: phục hồi khoảng trống block, bộ giải mã smart contract</li>
+                        <li>Tối ưu indexing đạt <b>query response &lt; 300ms</b> cho dữ liệu on-chain</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> TypeScript, Node.js (NestJS), Elixir &middot; Redis, PostgreSQL &middot; Docker &middot; AWS (EC2, ALB, VPC, S3, CloudWatch, SQS&hellip;) &middot; Blockchain (On-chain Indexing, Smart Contracts)</div>
+        </div>
+
+        <!-- Payment Gateway -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Payment Gateway Integration Platform</span>
+                <span class="job-date">Nov 2022 &ndash; Mar 2023</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Quản Lý Dự Án Kỹ Thuật / Backend Developer (NestJS)</span>
+                <span class="job-team-size">&#128101; 7 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Nền tảng tích hợp payment gateway đa kênh (thẻ tín dụng, ví điện tử, chuyển khoản, QR) — dashboard thời gian thực và đối soát tự động xử lý <b>1.000+ giao dịch/ngày</b>.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Quản Lý Dự Án</div>
+                    <ul class="resp-list">
+                        <li>Lập kế hoạch sprint và ước lượng effort cho tích hợp cổng thanh toán</li>
+                        <li>Làm việc trực tiếp với <b>5+ đối tác merchant</b> để thu thập yêu cầu và hỗ trợ onboarding</li>
+                        <li>Quản lý rủi ro bảo mật &amp; tuân thủ PCI-DSS; <b>0 sự cố bảo mật</b> trên môi trường thật</li>
+                        <li>Tích hợp thành công <b>3 cổng thanh toán</b> (Stripe, VNPay, Momo) trong 5 tháng</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Kỹ Thuật</div>
+                    <ul class="resp-list">
+                        <li>Thiết kế hệ thống xử lý <b>1.000+ giao dịch/ngày</b> với đối soát tự động</li>
+                        <li>Chỉ đạo thiết kế tích hợp với cơ chế retry và idempotency</li>
+                        <li>Review code, áp dụng tiêu chuẩn bảo mật và giám sát webhook</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> TypeScript, Node.js (NestJS), React.js &middot; PostgreSQL, Redis &middot; Docker &middot; AWS (EC2, S3, VPC, SQS, SNS, CloudWatch, Lambda&hellip;)</div>
+        </div>
+
+        <!-- SaaS CRM -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">SaaS CRM Platform &ndash; Multi-tenant</span>
+                <span class="job-date">Jun 2022 &ndash; Oct 2022</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Quản Lý Dự Án Kỹ Thuật / Backend Developer (NestJS)</span>
+                <span class="job-team-size">&#128101; 9 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> CRM SaaS đa tenant cho doanh nghiệp vừa và nhỏ — quản lý khách hàng, pipeline bán hàng, email marketing và dashboard phân tích với kiến trúc linh hoạt hỗ trợ <b>50+ tenant đồng thời</b>.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Quản Lý Dự Án</div>
+                    <ul class="resp-list">
+                        <li>Quản lý nhóm 9 người; theo dõi task và tiến độ qua Jira</li>
+                        <li>Làm việc với khách hàng; hoàn thành UAT với <b>0 lỗi nghiêm trọng</b> trước khi go-live</li>
+                        <li>Xử lý <b>10+ yêu cầu thay đổi</b>, ưu tiên theo giá trị kinh doanh</li>
+                        <li>Tổ chức standup hàng ngày, sprint review và retrospective hàng tuần</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Kỹ Thuật</div>
+                    <ul class="resp-list">
+                        <li>Thiết kế kiến trúc đa tenant hỗ trợ <b>50+ tenant đồng thời</b></li>
+                        <li>Tự động hóa email marketing gửi <b>10.000+ email/ngày</b> qua AWS SES</li>
+                        <li>Review code và đảm bảo chất lượng kỹ thuật toàn bộ module</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> TypeScript, Node.js (NestJS), React.js &middot; PostgreSQL, Redis, MongoDB &middot; Docker &middot; AWS (S3, EC2, VPC, SES, CloudFront, RDS, Route53&hellip;)</div>
+        </div>
+
+        <!-- Niko SoulBound -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Niko SoulBound &ndash; Blockchain Community Platform</span>
+                <span class="job-date">Jun 2022 &ndash; Dec 2023</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Quản Lý Dự Án Kỹ Thuật / Backend Developer (NestJS) / DevOps</span>
+                <span class="job-team-size">&#128101; 9 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Nền tảng cộng đồng trên blockchain ghi nhận đóng góp GitHub qua Soulbound Tokens (SBT) — lịch sử đóng góp minh bạch và bất biến, phát hành <b>5.000+ SBT on-chain</b>.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Quản Lý Dự Án</div>
+                    <ul class="resp-list">
+                        <li>Dẫn dắt nhóm 9 người trong 18 tháng qua 3 giai đoạn (MVP &rarr; Cải tiến &rarr; Mở rộng)</li>
+                        <li>Xây dựng kế hoạch release và roadmap dài hạn; bàn giao <b>6 phiên bản đúng lịch</b></li>
+                        <li>Tối ưu pipeline CI/CD; giảm <b>thời gian deploy từ 45 phút xuống 8 phút</b></li>
+                        <li>Mentoring 3 junior developer (2 người được thăng cấp mid-level)</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Kỹ Thuật</div>
+                    <ul class="resp-list">
+                        <li>Thiết kế hệ thống phát hành <b>5.000+ SBT token</b> on-chain</li>
+                        <li>Thực hiện code review và định hướng kỹ thuật</li>
+                        <li>Tối ưu hạ tầng AWS, đạt <b>99.8% uptime</b></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> TypeScript, Node.js (NestJS), React.js &middot; Redis, MySQL &middot; Docker &middot; GitHub Actions, GitLab CI &middot; AWS (EC2, ALB, KMS, VPC, S3, CloudWatch, SNS&hellip;) &middot; Blockchain (SBT, EVM Networks)</div>
+        </div>
+
+        <!-- DDF -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">DDF &ndash; Blockchain Distribution Platform</span>
+                <span class="job-date">Nov 2021 &ndash; May 2022</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">STI</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Quản Lý Dự Án Kỹ Thuật / Backend Developer (Node.js)</span>
+                <span class="job-team-size">&#128101; 14 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Nền tảng blockchain phát hành tiền điện tử, cho phép người dùng mua hàng từ nhà phân phối — xử lý <b>2.000+ giao dịch token/ngày</b> với tích hợp smart contract ERC-20/BEP-20.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Quản Lý Dự Án</div>
+                    <ul class="resp-list">
+                        <li>Quản lý nhóm 14 người; <b>100% bàn giao đúng hạn</b> qua 6 sprint</li>
+                        <li>Làm việc trực tiếp với khách hàng để xác định yêu cầu và ưu tiên tính năng</li>
+                        <li>Quản lý rủi ro bảo mật smart contract; <b>0 lỗ hổng</b> sau kiểm toán</li>
+                        <li>Phối hợp nhóm Backend, Frontend và Blockchain để tích hợp mượt mà</li>
+                        <li>Báo cáo tiến độ hàng tuần và demo sản phẩm cho khách hàng</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Kỹ Thuật</div>
+                    <ul class="resp-list">
+                        <li>Thiết kế kiến trúc hệ thống xử lý <b>2.000+ giao dịch token/ngày</b></li>
+                        <li>Thiết kế luồng ví, xử lý giao dịch và tích hợp smart contract (ERC-20/BEP-20)</li>
+                        <li>Thực hiện code review và áp dụng chuẩn mực lập trình</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> Node.js (Express.js), JavaScript, React.js &middot; Redis, PostgreSQL &middot; Docker &middot; AWS (EC2, ALB, KMS, VPC, S3, SQS, CloudWatch&hellip;) &middot; Blockchain (ERC-20/BEP-20)</div>
+        </div>
+
+        <!-- Smart Logistics -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Smart Logistics Platform</span>
+                <span class="job-date">Jun 2021 &ndash; Oct 2021</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">STI</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Trưởng Nhóm / Lập Trình Viên Backend (Node.js)</span>
+                <span class="job-team-size">&#128101; 8 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Hệ thống logistics thông minh end-to-end: theo dõi thời gian thực <b>500+ đơn hàng/ngày</b> qua WebSocket, quản lý kho, tối ưu tuyến đường và phân tích hiệu suất giao hàng.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Lãnh Đạo Nhóm</div>
+                    <ul class="resp-list">
+                        <li>Dẫn dắt nhóm 8 người; phân công task và giám sát tiến độ hàng ngày</li>
+                        <li>Collaborated with BAs and <b>3 logistics partners</b> to define integration requirements</li>
+                        <li>Mentoring 2 junior developer; thực hiện code review hàng ngày</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Kỹ Thuật</div>
+                    <ul class="resp-list">
+                        <li>Architected real-time tracking system for <b>500+ orders/day</b> using WebSocket</li>
+                        <li>Built warehouse API and route optimization, reducing <b>shipping costs by 20%</b></li>
+                        <li>Tích hợp API bên thứ ba (đối tác logistics, Google Maps)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> Node.js (Express.js), JavaScript, React.js &middot; MySQL, Redis &middot; Docker &middot; AWS (EC2, S3, VPC, SQS, CloudWatch&hellip;)</div>
+        </div>
+
+        <!-- Sheer Hotel Booking -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Sheer Hotel Booking</span>
+                <span class="job-date">Feb 2021 &ndash; May 2021</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">BAP</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Lập Trình Viên Backend (PHP)</span>
+                <span class="job-team-size">&#128101; 14 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Nền tảng đặt phòng khách sạn đầy đủ tính năng — đặt phòng, quản lý giá động, xử lý dữ liệu khách và tích hợp thanh toán.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Xây dựng luồng đặt phòng hỗ trợ <b>500+ đặt phòng đồng thời</b>; tích hợp 2 cổng thanh toán</li>
+                    <li>Thiết kế schema DB linh hoạt cho giá động trên <b>100+ loại phòng</b></li>
+                    <li>Giảm thời gian xử lý đặt phòng <b>~40%</b> qua tối ưu query và caching</li>
+                    <li>Tự chủ onboard 2 developer mới và thực hiện code review — trách nhiệm lãnh đạo đầu tiên</li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> PHP (Laravel), Vue.js &middot; MySQL, Redis &middot; Docker &middot; AWS (EC2, VPC, S3&hellip;)</div>
+        </div>
+
+        <!-- Beauty Salon -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Beauty Salon &ndash; Booking &amp; Scheduling System</span>
+                <span class="job-date">Jul 2020 &ndash; Jan 2021</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">BAP</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Lập Trình Viên Backend (PHP)</span>
+                <span class="job-team-size">&#128101; 10 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Hệ thống đặt lịch online cho spa và dịch vụ làm đẹp — xem lịch trống thời gian thực, đặt hẹn và quản lý dịch vụ.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Xây dựng module đặt lịch quản lý <b>200+ lịch hẹn/ngày</b> trên nhiều chi nhánh</li>
+                    <li>Triển khai RBAC cho nhân viên và quản trị viên; giảm lỗi liên quan quyền truy cập <b>~60%</b></li>
+                    <li>Xây dựng dashboard quản trị xem lịch thời gian thực và xử lý xung đột</li>
+                    <li>Tối ưu query lịch; giảm thời gian tải trang từ <b>4 giây xuống dưới 1 giây</b></li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> PHP (Laravel), React.js &middot; PostgreSQL, Redis &middot; Docker &middot; AWS (EC2, VPC, S3&hellip;)</div>
+        </div>
+
+        <!-- HR Management System -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">HR Management System</span>
+                <span class="job-date">Jan 2020 &ndash; Jun 2020</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">BAP</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Lập Trình Viên Backend (PHP)</span>
+                <span class="job-team-size">&#128101; 6 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Hệ thống quản lý nhân sự nội bộ — hồ sơ nhân viên, chấm công, tính lương tự động và dashboard báo cáo toàn diện.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Xây dựng module quản lý nhân viên và RBAC cho <b>200+ hồ sơ nhân sự</b></li>
+                    <li>Tự động hóa tính lương; giảm thời gian xử lý thủ công <b>~70%</b></li>
+                    <li>Xây dựng dashboard báo cáo phân tích nhân sự thời gian thực (chấm công, nghỉ phép, OT)</li>
+                    <li>Tích hợp REST API với hệ thống kế toán bên ngoài; giảm lỗi đồng bộ dữ liệu <b>~80%</b></li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> PHP (Laravel), Vue.js &middot; PostgreSQL, Redis &middot; Docker &middot; AWS (EC2, S3, VPC&hellip;)</div>
+        </div>
+
+        <!-- E-Learning Platform -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">E-Learning Platform</span>
+                <span class="job-date">Jul 2019 &ndash; Jan 2020</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">BAP</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Lập Trình Viên Backend (PHP)</span>
+                <span class="job-team-size">&#128101; 8 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Nền tảng học trực tuyến cho khách hàng Nhật Bản — quản lý khóa học, phát video, bài kiểm tra và theo dõi tiến độ học viên.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Xây dựng API quản lý khóa học và nội dung phục vụ <b>1.000+ học viên</b></li>
+                    <li>Xây dựng hệ thống bài kiểm tra với chấm điểm tự động; loại bỏ <b>100%</b> chấm điểm thủ công</li>
+                    <li>Tích hợp phát video qua AWS CloudFront; cải thiện thời gian tải <b>~50%</b></li>
+                    <li>Tối ưu query chậm; giảm thời gian phản hồi API trung bình từ <b>2 giây xuống 400ms</b></li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> PHP (Laravel), Vue.js &middot; MySQL, Redis &middot; Docker &middot; AWS (EC2, S3, VPC, CloudFront)</div>
+        </div>
+
+        <!-- Tokyo Harbor -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Tokyo Harbor &ndash; Japan Travel Platform</span>
+                <span class="job-date">Jun 2019 &ndash; Jun 2020</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">BAP</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Lập Trình Viên Backend (PHP)</span>
+                <span class="job-team-size">&#128101; 6 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Nền tảng du lịch Nhật Bản — lịch tàu, lập kế hoạch chuyến đi, đặt vé và quản lý hành trình cho du khách khám phá Nhật Bản.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Xây dựng API backend cho lập lịch trình bao gồm <b>50+ tuyến tàu</b> và <b>200+ điểm đến</b></li>
+                    <li>Thiết kế schema quan hệ cho địa điểm, lịch trình và đặt vé</li>
+                    <li>Tích hợp 3 API bên ngoài (lịch tàu, Google Maps, cổng thanh toán)</li>
+                    <li>Tối ưu query phức tạp; giảm thời gian phản hồi tìm kiếm <b>~60%</b></li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> PHP (Laravel), React.js &middot; MySQL, Redis &middot; Docker &middot; AWS (EC2, VPC, S3&hellip;)</div>
+        </div>
+
+        <!-- Booking Travel Platform -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Booking Travel Platform</span>
+                <span class="job-date">Jan 2018 &ndash; Jun 2018</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Freelance</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Lập Trình Viên Fullstack (PHP, Laravel, jQuery)</span>
+                <span class="job-team-size">&#128101; 3 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Nền tảng đặt tour du lịch MVP — tìm kiếm tour, đặt chỗ, xử lý thanh toán và quản lý hành trình.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Xây dựng hệ thống tìm kiếm và lọc tour</li>
+                    <li>Phát triển module đặt chỗ và quản lý hành trình</li>
+                    <li>Thiết kế database cho điểm đến, tour và đặt chỗ</li>
+                    <li>Xây dựng giao diện quản trị cho quản lý tour</li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> PHP (Laravel), jQuery, Bootstrap &middot; MySQL</div>
+        </div>
+
+        <!-- Shop Quần Áo -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Online Fashion Shop &ndash; E-commerce</span>
+                <span class="job-date">Mar 2017 &ndash; Dec 2017</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Freelance</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Lập Trình Viên Fullstack (PHP, Laravel)</span>
+                <span class="job-team-size">&#128101; 2 thành viên</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Dự án:</span> Website thương mại điện tử thời trang đầy đủ tính năng — quản lý sản phẩm, giỏ hàng, xử lý đơn hàng, tích hợp thanh toán và quản lý kho.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Thiết kế và phát triển giao diện người dùng frontend</li>
+                    <li>Xây dựng API backend cho quản lý sản phẩm và đơn hàng</li>
+                    <li>Tích hợp cổng thanh toán và quản lý kho</li>
+                    <li>Triển khai và bảo trì hệ thống production</li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Công nghệ:</strong> PHP (Laravel), HTML/CSS/JavaScript &middot; MySQL</div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function exportPDF() {
+    const btn = document.getElementById('exportBtn');
+    // Show loading state
+    btn.classList.add('loading');
+    btn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+        </svg>
+        Đang chuẩn bị...
+    `;
+    // Small delay so browser renders loading state before print dialog blocks
+    setTimeout(() => {
+        window.print();
+        // Restore button after print dialog closes
+        setTimeout(() => {
+            btn.classList.remove('loading');
+            btn.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3v13M7 11l5 5 5-5"/>
+                    <path d="M5 20h14"/>
+                </svg>
+                Xuất PDF
+            `;
+        }, 500);
+    }, 150);
+}
+
+// Hide button on mobile since print-to-PDF works better on desktop
+if (window.innerWidth <= 768) {
+    const btn = document.getElementById('exportBtn');
+    btn.style.display = 'none';
+}
+</script>
+
+</body>
+</html>
