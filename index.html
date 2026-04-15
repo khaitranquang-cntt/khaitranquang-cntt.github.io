@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KHAI TRAN QUANG - Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        background-color: #DDE3EA;
+        background-image: radial-gradient(#b8c4d0 1.5px, transparent 1.5px);
+        background-size: 28px 28px;
+        font-family: 'Inter', sans-serif;
+        padding: 40px 20px;
+        color: #1e293b;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* ===== SHEET WRAPPER ===== */
+    .sheet {
+        max-width: 1060px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.08);
+        display: flex;
+        overflow: hidden;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .side-col {
+        width: 310px;
+        flex-shrink: 0;
+        background: linear-gradient(175deg, #1a3352 0%, #1e3d63 60%, #162d4a 100%);
+        color: #e2e8f0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .side-top {
+        padding: 40px 30px 30px;
+        background: rgba(0,0,0,0.15);
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .avatar-wrapper {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        margin: 0 auto 18px;
+        overflow: hidden;
+        border: 3px solid rgba(52,152,219,0.6);
+        box-shadow: 0 0 0 4px rgba(52,152,219,0.15);
+    }
+    .avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+    .side-body { padding: 24px 28px 32px; flex: 1; }
+
+    /* ===== SIDEBAR SECTION TITLE ===== */
+    .side-section-title {
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: #3498DB;
+        margin: 28px 0 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .side-section-title::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: rgba(52,152,219,0.3);
+    }
+    .side-section-title:first-child { margin-top: 0; }
+
+    /* ===== EDUCATION CARD ===== */
+    .edu-card { margin-bottom: 16px; }
+    .edu-name { font-size: 13px; font-weight: 600; color: #f1f5f9; margin-bottom: 3px; line-height: 1.4; }
+    .edu-school { font-size: 11.5px; color: #94a3b8; margin-bottom: 2px; }
+    .edu-meta { font-size: 11px; color: #64748b; }
+    .edu-grade { display: inline-block; margin-top: 5px; font-size: 11px; font-weight: 600; color: #3498DB; background: rgba(52,152,219,0.12); padding: 2px 8px; border-radius: 3px; }
+
+    /* ===== CERT ===== */
+    .cert-item { margin-bottom: 12px; }
+    .cert-name { font-size: 12.5px; font-weight: 600; color: #f1f5f9; margin-bottom: 3px; line-height: 1.35; }
+    .cert-desc { font-size: 11px; color: #94a3b8; line-height: 1.45; }
+    .cert-link { color: #3498DB; text-decoration: none; font-weight: 600; }
+
+    /* ===== SKILL TAGS ===== */
+    .skill-group { margin-bottom: 14px; }
+    .skill-group-label { font-size: 10.5px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 7px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .skill-tag {
+        font-size: 10.5px;
+        padding: 3px 9px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 3px;
+        color: #cbd5e1;
+        line-height: 1.4;
+    }
+    .skill-tag.strong {
+        background: rgba(52,152,219,0.15);
+        border-color: rgba(52,152,219,0.35);
+        color: #e2e8f0;
+        font-weight: 500;
+    }
+
+    /* ===== LANGUAGE BARS ===== */
+    .lang-bars { display: flex; flex-direction: column; gap: 9px; }
+    .skill-bar-item {}
+    .skill-bar-label { display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 500; margin-bottom: 4px; color: #cbd5e1; }
+    .skill-bar-label span:last-child { color: #64748b; }
+    .skill-bar-outer { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; }
+    .skill-bar-inner { height: 100%; background: linear-gradient(90deg, #2980b9, #3498DB); border-radius: 2px; }
+
+    /* ===== CAREER OBJECTIVE ===== */
+    .objective-text { font-size: 11.5px; color: #94a3b8; line-height: 1.65; }
+    .objective-text p { margin-bottom: 8px; }
+    .objective-text p:last-child { margin-bottom: 0; }
+
+    /* ===== MAIN COLUMN ===== */
+    .main-col {
+        flex: 1;
+        padding: 40px 42px;
+        min-width: 0;
+        background: #fff;
+    }
+
+    /* ===== NAME / TITLE HEADER ===== */
+    .cv-header { margin-bottom: 22px; border-bottom: 2px solid #f1f5f9; padding-bottom: 20px; }
+    h1.name {
+        font-size: 30px;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        line-height: 1.1;
+        margin-bottom: 6px;
+    }
+    h2.title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #1e3a5f;
+        margin-bottom: 5px;
+        letter-spacing: 0.2px;
+    }
+    .tagline {
+        font-size: 12px;
+        font-weight: 400;
+        color: #3498DB;
+        margin-bottom: 14px;
+        letter-spacing: 0.3px;
+    }
+
+    /* ===== CONTACT GRID ===== */
+    .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 20px;
+    }
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 5px;
+        font-size: 11.5px;
+        color: #475569;
+    }
+    .contact-label {
+        font-weight: 600;
+        color: #334155;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .contact-sep { color: #cbd5e1; }
+
+    /* ===== MAIN SECTION TITLES ===== */
+    .section-title {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #3498DB;
+        margin: 28px 0 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .section-title::after {
+        content: '';
+        flex: 1;
+        height: 1.5px;
+        background: linear-gradient(90deg, #e2e8f0, transparent);
+    }
+
+    /* ===== SUMMARY ===== */
+    .summary-text { font-size: 13px; line-height: 1.75; color: #334155; margin-bottom: 14px; }
+    .summary-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start; }
+    .summary-block {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-left: 3px solid #3498DB;
+        border-radius: 0 6px 6px 0;
+        padding: 10px 12px;
+    }
+    .summary-category { display: block; font-size: 9.5px; font-weight: 700; color: #3498DB; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+    .summary-value { font-size: 12px; color: #334155; line-height: 1.5; }
+
+    /* ===== AI SECTION ===== */
+    .ai-section {
+        background: linear-gradient(135deg, #f0f7ff 0%, #f8fafc 100%);
+        border: 1px solid #bfdbfe;
+        border-left: 3px solid #3498DB;
+        border-radius: 0 8px 8px 0;
+        padding: 14px 16px;
+        margin-bottom: 6px;
+    }
+    .ai-intro { font-size: 12.5px; color: #1e3a5f; margin-bottom: 10px; line-height: 1.6; }
+    .ai-list { margin: 0; padding-left: 16px; }
+    .ai-list li { font-size: 12px; color: #334155; margin-bottom: 5px; line-height: 1.5; }
+    .ai-list li:last-child { margin-bottom: 0; }
+
+    /* ===== EXPERIENCE ITEMS ===== */
+    .job-item {
+        margin-bottom: 22px;
+        padding-bottom: 22px;
+        border-bottom: 1px solid #f1f5f9;
+        page-break-inside: avoid;
+    }
+    .job-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 4px;
+    }
+    .job-role {
+        font-size: 15px;
+        font-weight: 700;
+        color: #0f172a;
+        line-height: 1.3;
+    }
+    .job-date {
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #fff;
+        background: #3498DB;
+        padding: 2px 10px;
+        border-radius: 20px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .job-meta-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+    .job-company {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: #3498DB;
+    }
+    .job-meta-sep { color: #cbd5e1; font-size: 12px; }
+    .job-position {
+        font-size: 12px;
+        color: #64748b;
+        font-style: italic;
+    }
+    .job-team-size {
+        margin-left: auto;
+        font-size: 11px;
+        color: #94a3b8;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        padding: 1px 8px;
+        border-radius: 10px;
+    }
+
+    .job-desc {
+        font-size: 12px;
+        color: #475569;
+        line-height: 1.55;
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        background: #f8fafc;
+        border-left: 2px solid #e2e8f0;
+        border-radius: 0 4px 4px 0;
+    }
+    .job-desc-label { font-weight: 600; color: #334155; }
+
+    .resp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+    .resp-section { margin-bottom: 4px; }
+    .resp-title {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #64748b;
+        margin-bottom: 5px;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #f1f5f9;
+    }
+    .resp-list { margin: 0; padding-left: 14px; }
+    .resp-list li {
+        font-size: 12px;
+        color: #334155;
+        margin-bottom: 4px;
+        line-height: 1.45;
+    }
+    .resp-list li:last-child { margin-bottom: 0; }
+
+    .job-tech {
+        font-size: 11.5px;
+        color: #475569;
+        margin-top: 10px;
+        line-height: 1.55;
+    }
+    .job-tech strong { color: #1e293b; font-weight: 600; font-style: normal; }
+
+    .resp-single .resp-list { columns: unset; }
+
+    b { font-weight: 600; }
+
+    /* ===== PRINT ===== */
+    @media print {
+        body { background: none; margin: 0; padding: 0; }
+        .sheet { box-shadow: none; border-radius: 0; max-width: 100%; border: none; }
+        .main-col { padding: 28px 32px; }
+        .side-col { background: #1a3352 !important; }
+        .side-top { background: rgba(0,0,0,0.2) !important; }
+        .job-item { page-break-inside: avoid; }
+        .summary-blocks { break-inside: avoid; }
+    }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+    <!-- ========== SIDEBAR ========== -->
+    <div class="side-col">
+        <div class="side-top">
+            <div class="avatar-wrapper">
+                <img src="khaitq.png" alt="Avatar">
+            </div>
+        </div>
+
+        <div class="side-body">
+
+            <!-- Education -->
+            <div class="side-section-title">Education</div>
+            <div class="edu-card">
+                <div class="edu-name">Bachelor of Information Technology</div>
+                <div class="edu-school">Vietnam-Korea University of Information and Communication Technology</div>
+                <div class="edu-meta">Batch 17 &middot; 2014 &ndash; 2018</div>
+                <span class="edu-grade">Grade: Very good</span>
+            </div>
+            <div class="cert-item">
+                <div class="cert-name">AWS Certified Solutions Architect &ndash; Associate</div>
+                <div class="cert-desc">Certified in designing cloud architectures on AWS following the Well-Architected Framework <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/a71cba9aba554927a0dc51658831899b" target="_blank" class="cert-link">[Verify]</a></div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="side-section-title">Technical Skills</div>
+            <div class="skill-group">
+                <div class="skill-group-label">Languages &amp; Frameworks</div>
+                <div class="skill-tags">
+                    <span class="skill-tag strong">JavaScript</span>
+                    <span class="skill-tag strong">TypeScript</span>
+                    <span class="skill-tag strong">NodeJS</span>
+                    <span class="skill-tag strong">NestJS</span>
+                    <span class="skill-tag strong">ExpressJS</span>
+                    <span class="skill-tag strong">PHP</span>
+                    <span class="skill-tag strong">Laravel</span>
+                    <span class="skill-tag strong">VueJS</span>
+                    <span class="skill-tag strong">ReactJS</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Databases</div>
+                <div class="skill-tags">
+                    <span class="skill-tag strong">MySQL</span>
+                    <span class="skill-tag strong">PostgreSQL</span>
+                    <span class="skill-tag strong">Redis</span>
+                    <span class="skill-tag strong">DynamoDB</span>
+                    <span class="skill-tag strong">MongoDB</span>
+                    <span class="skill-tag strong">LevelDB</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Cloud &amp; DevOps</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">GCP</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Terraform</span>
+                    <span class="skill-tag">Prometheus</span>
+                    <span class="skill-tag">Grafana</span>
+                    <span class="skill-tag">GitHub Actions</span>
+                    <span class="skill-tag">GitLab CI</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">Blockchain</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">ERC-20 / BEP-20</span>
+                    <span class="skill-tag">MPC Wallets</span>
+                    <span class="skill-tag">Smart Contracts</span>
+                    <span class="skill-tag">On-chain Indexing</span>
+                    <span class="skill-tag">EVM Networks</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <div class="skill-group-label">AI &amp; Methodologies</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Claude Code</span>
+                    <span class="skill-tag">Cursor AI</span>
+                    <span class="skill-tag">Vibe Coding</span>
+                    <span class="skill-tag">OpenAI API</span>
+                    <span class="skill-tag">Agile / Scrum</span>
+                    <span class="skill-tag">Kanban</span>
+                    <span class="skill-tag">Jira</span>
+                    <span class="skill-tag">Confluence</span>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="side-section-title">Languages</div>
+            <div class="lang-bars">
+                <div class="skill-bar-item">
+                    <div class="skill-bar-label"><span>Reading</span><span>Advanced</span></div>
+                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width:90%"></div></div>
+                </div>
+                <div class="skill-bar-item">
+                    <div class="skill-bar-label"><span>Writing</span><span>Upper-Intermediate</span></div>
+                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width:80%"></div></div>
+                </div>
+                <div class="skill-bar-item">
+                    <div class="skill-bar-label"><span>Listening</span><span>Intermediate</span></div>
+                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width:70%"></div></div>
+                </div>
+                <div class="skill-bar-item">
+                    <div class="skill-bar-label"><span>Speaking</span><span>Intermediate</span></div>
+                    <div class="skill-bar-outer"><div class="skill-bar-inner" style="width:70%"></div></div>
+                </div>
+            </div>
+
+            <!-- Career Objective -->
+            <div class="side-section-title">Career Objective</div>
+            <div class="objective-text">
+                <p>Lead engineering teams of <b>15&ndash;30 members</b>, building high-impact products in Enterprise SaaS, Fintech, and Logistics.</p>
+                <p>Integrate AI, Cloud-native &amp; Automation into production systems, improving operational efficiency by <b>3&ndash;5x</b>.</p>
+                <p>Grow into a seasoned <b>Technical Project Manager</b> &mdash; the optimal bridge between Business &amp; Engineering.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========== MAIN COLUMN ========== -->
+    <div class="main-col">
+
+        <!-- Name & Contact -->
+        <div class="cv-header">
+            <h1 class="name">Khai Tran Quang</h1>
+            <h2 class="title">Technical Project Manager</h2>
+            <div class="tagline">Engineering Lead &nbsp;&middot;&nbsp; Fullstack (Node.js / PHP &middot; NestJS / Laravel) &nbsp;&middot;&nbsp; DevOps &amp; AWS &nbsp;&middot;&nbsp; Blockchain</div>
+            <div class="contact-row">
+                <div class="contact-item"><span class="contact-label">Date of Birth:</span><span>Dec 26, 1996</span></div>
+                <div class="contact-item"><span class="contact-label">Phone:</span><span>+84 967 577 849</span></div>
+                <div class="contact-item"><span class="contact-label">Email:</span><span>khaitq.cntt@gmail.com</span></div>
+                <div class="contact-item"><span class="contact-label">Experience:</span><span>8+ years</span></div>
+                <div class="contact-item" style="flex-basis:100%"><span class="contact-label">Location:</span><span>Tower CT9, Unit CH03.07 &ndash; Bau Tram Social Housing, Hai Van Ward, Da Nang City</span></div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="section-title">Summary</div>
+        <p class="summary-text">Over <b>8 years of experience</b> in software development (Fullstack, DevOps) and technical project management. Participated in and led <b>16+ projects</b> (teams of 2&ndash;20 people) across diverse domains: E-commerce, Enterprise SaaS, Fintech, Logistics, E-learning, and Blockchain.</p>
+        <div class="summary-blocks">
+            <div class="summary-block">
+                <span class="summary-category">Career Path</span>
+                <span class="summary-value">Freelance &rarr; BAP (2018&ndash;2021) &rarr; STI (2021&ndash;2022) &rarr; <b>Napa Global (2022&ndash;Present)</b></span>
+            </div>
+            <div class="summary-block">
+                <span class="summary-category">Core Expertise</span>
+                <span class="summary-value">Agile/Scrum &middot; Microservices &middot; Fullstack (Node/PHP/Vue/React) &middot; DevOps &amp; AWS &middot; Blockchain</span>
+            </div>
+            <div class="summary-block">
+                <span class="summary-category">AI-Driven Impact</span>
+                <span class="summary-value">Automated <b>~70% boilerplate</b> &middot; Reduced <b>~90%</b> unit test time &middot; Cut Concept&rarr;MVP by <b>~80%</b></span>
+            </div>
+            <div class="summary-block">
+                <span class="summary-category">Strategic Goal</span>
+                <span class="summary-value">Advance as a <b>Technical Project Manager</b> leading <b>15&ndash;30+ engineers</b>, bridging Business &amp; Engineering</span>
+            </div>
+        </div>
+
+        <!-- AI Strategy -->
+        <div class="section-title">AI Strategy &amp; Innovation</div>
+        <div class="ai-section">
+            <div class="ai-intro">Proactively applying <b>AI to the software development lifecycle</b>, proficient with Claude Code, Cursor AI, and Vibe Coding methodologies:</div>
+            <ul class="ai-list">
+                <li>Used <b>Claude Code</b> to automate test generation &rarr; reduced unit test writing time by <b>~90%</b> per module (e.g., from 4h to 20min for a service layer)</li>
+                <li>Applied <b>Vibe Coding</b> for rapid prototyping &rarr; cut time from Concept to MVP by <b>~80%</b> (e.g., MIMO onboarding flow: estimated 2 weeks, delivered in 4 days)</li>
+                <li>Automated <b>~70% of CRUD boilerplate code</b>, reducing debug &amp; bug-fix time by <b>~90%</b> across Napa projects</li>
+                <li>Leveraged AI to analyze codebases, refactor legacy code, and optimize CI/CD pipelines &rarr; deploy time <b>45min &rarr; 8min</b> (Niko SoulBound)</li>
+                <li><b>Integrated AI APIs (OpenAI, Claude API)</b>: user-facing chatbots, automated transaction data analysis, intelligent content generation</li>
+            </ul>
+        </div>
+
+        <!-- Experience -->
+        <div class="section-title">Experience</div>
+
+        <!-- MIMO -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">MIMO &ndash; Financial App (USDT &harr; VND)</span>
+                <span class="job-date">May 2025 &ndash; Present</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Technical Project Manager / Backend Developer (PHP, Vue.js, Node.js)</span>
+                <span class="job-team-size">&#128101; 10 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> A financial application enabling legal USDT &harr; VND conversion, with e-wallet integration and a full legal compliance flow (KYC/AML).</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Project Management</div>
+                    <ul class="resp-list">
+                        <li>2-week sprint cycles, managing backlog of <b>150+ user stories</b></li>
+                        <li>Cross-team coordination: Backend, Mobile (RN), Frontend, QA</li>
+                        <li>Managed compliance risks (KYC/AML) and escalated legal issues to stakeholders</li>
+                        <li>Reported weekly progress to Product Owner and senior leadership</li>
+                        <li>Handled scope creep and change requests from business</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Technical</div>
+                    <ul class="resp-list">
+                        <li>Architected system processing <b>500+ transactions/day</b> in fiat-crypto exchange</li>
+                        <li>Conducted code reviews to uphold coding standards and system security</li>
+                        <li>Monitored deployments, maintaining <b>99.5% uptime</b></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> PHP (Laravel), TypeScript, Node.js (NestJS), Vue.js, React Native &middot; MySQL, Redis &middot; Docker &middot; AWS (SES, S3, RDS, KMS, VPC, ECS, CloudWatch, Secrets Manager, Route53&hellip;) &middot; Blockchain</div>
+        </div>
+
+        <!-- Xwallet -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Xwallet &ndash; MPC Wallet System</span>
+                <span class="job-date">Apr 2024 &ndash; Apr 2025</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Technical Sub PM / Backend Developer (Node.js, Java) / DevOps</span>
+                <span class="job-team-size">&#128101; 15 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> MPC wallet leveraging key sharding to eliminate single points of failure, enabling high-security multi-chain transactions with full scalability.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Project Management (Sub PM)</div>
+                    <ul class="resp-list">
+                        <li>Coordinated a sub-team of 6 (out of 15 total), reporting directly to the PM</li>
+                        <li>Managed backlog and task assignments for Backend/DevOps sub-team</li>
+                        <li>Tracked sprint progress; identified and resolved <b>10+ blockers per sprint</b></li>
+                        <li>Collaborated with Frontend &amp; Mobile sub-teams to ensure API integration</li>
+                        <li>Organized weekly code review sessions and knowledge sharing</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Technical</div>
+                    <ul class="resp-list">
+                        <li>Designed MPC architecture supporting <b>5+ EVM-compatible chains</b> and key management</li>
+                        <li>Implemented distributed key generation and transaction signing, achieving <b>99.9% uptime</b></li>
+                        <li>Integrated multi-chain support across EVM-compatible networks</li>
+                        <li>Managed infrastructure, monitoring, and deployments</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> TypeScript, Node.js (NestJS), Java &middot; Redis, LevelDB, DynamoDB &middot; Docker &middot; Prometheus, Grafana &middot; AWS (SES, S3, DynamoDB, KMS, VPC, ECS, CloudWatch, Lambda, SNS&hellip;) &middot; Blockchain (MPC Wallets, EVM Networks)</div>
+        </div>
+
+        <!-- Amoda -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Amoda &ndash; Inventory &amp; Warehouse Management</span>
+                <span class="job-date">Jun 2023 &ndash; Mar 2024</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Technical Project Manager / Backend Developer (NestJS, React.js) / DevOps</span>
+                <span class="job-team-size">&#128101; 20 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Inventory and warehouse management system for tracking goods in/out and computing real-time stock levels across <b>10,000+ SKUs</b>.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Project Management</div>
+                    <ul class="resp-list">
+                        <li>Managed a team of 20 split into 3 sub-teams (Backend, Frontend, QA), 2-week sprints</li>
+                        <li>Delivered <b>4 major releases on time</b> within 10 months</li>
+                        <li>Reported progress weekly; handled <b>15+ change requests</b> and scope management</li>
+                        <li>Ran retrospectives, mentored <b>5 junior developers</b>, and onboarded new members</li>
+                        <li>Managed data consistency risks in the complex inventory system</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Technical</div>
+                    <ul class="resp-list">
+                        <li>Architected a system handling <b>10,000+ SKUs</b> with real-time stock tracking</li>
+                        <li>Conducted code reviews and provided technical direction for the team</li>
+                        <li>Monitored deployments; optimized query response time from <b>3s down to 200ms</b></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> TypeScript, Node.js (NestJS), React.js &middot; MySQL, Redis &middot; Docker &middot; GitHub Actions &middot; AWS (SES, S3, RDS, VPC, ECS, CloudWatch, Route53, ALB&hellip;)</div>
+        </div>
+
+        <!-- Cross Value Scan -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Cross Value Scan &ndash; Blockchain Explorer &amp; Scanning</span>
+                <span class="job-date">Jan 2023 &ndash; May 2023</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Technical Project Manager / Backend Developer (Node.js, Elixir) / DevOps</span>
+                <span class="job-team-size">&#128101; 12 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Blockchain explorer &amp; scanning platform to monitor transactions, detect new blocks, and interact with deployed smart contracts &mdash; real-time on-chain data visualization with <b>2M+ blocks</b> indexed.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Project Management</div>
+                    <ul class="resp-list">
+                        <li>Managed a team of 12; led sprint planning and task allocation</li>
+                        <li>Coordinated Backend (Node.js) &amp; Elixir (indexer) teams for seamless integration</li>
+                        <li>Managed performance &amp; data integrity risks for <b>2M+ indexed blocks</b></li>
+                        <li>Reported progress and demoed each sprint &mdash; <b>100% on-time delivery</b></li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Technical</div>
+                    <ul class="resp-list">
+                        <li>Designed event-driven architecture for block and transaction processing</li>
+                        <li>Directed technical solutions: block gap recovery, smart contract decoder</li>
+                        <li>Optimized indexing to achieve <b>query response &lt; 300ms</b> for on-chain data</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> TypeScript, Node.js (NestJS), Elixir &middot; Redis, PostgreSQL &middot; Docker &middot; AWS (EC2, ALB, VPC, S3, CloudWatch, SQS&hellip;) &middot; Blockchain (On-chain Indexing, Smart Contracts)</div>
+        </div>
+
+        <!-- Payment Gateway -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Payment Gateway Integration Platform</span>
+                <span class="job-date">Nov 2022 &ndash; Mar 2023</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Technical Project Manager / Backend Developer (NestJS)</span>
+                <span class="job-team-size">&#128101; 7 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Multi-channel payment gateway integration platform (credit card, e-wallet, bank transfer, QR) &mdash; real-time dashboard and automated reconciliation processing <b>1,000+ transactions/day</b>.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Project Management</div>
+                    <ul class="resp-list">
+                        <li>Sprint planning and effort estimation for gateway integrations</li>
+                        <li>Directly engaged <b>5+ merchant partners</b> to gather requirements and support onboarding</li>
+                        <li>Managed security &amp; PCI-DSS compliance risks; <b>0 security incidents</b> in production</li>
+                        <li>Successfully integrated <b>3 payment gateways</b> (Stripe, VNPay, Momo) in 5 months</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Technical</div>
+                    <ul class="resp-list">
+                        <li>Architected system processing <b>1,000+ transactions/day</b> with automated reconciliation</li>
+                        <li>Directed integration design with retry mechanisms and idempotency</li>
+                        <li>Reviewed code, enforced security standards, and monitored webhook systems</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> TypeScript, Node.js (NestJS), React.js &middot; PostgreSQL, Redis &middot; Docker &middot; AWS (EC2, S3, VPC, SQS, SNS, CloudWatch, Lambda&hellip;)</div>
+        </div>
+
+        <!-- SaaS CRM -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">SaaS CRM Platform &ndash; Multi-tenant</span>
+                <span class="job-date">Jun 2022 &ndash; Oct 2022</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Technical Project Manager / Backend Developer (NestJS)</span>
+                <span class="job-team-size">&#128101; 9 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Multi-tenant SaaS CRM for SMEs &mdash; customer management, sales pipeline, email marketing, and analytics dashboards with a flexible architecture supporting <b>50+ concurrent tenants</b>.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Project Management</div>
+                    <ul class="resp-list">
+                        <li>Managed a team of 9; tracked tasks and progress via Jira</li>
+                        <li>Liaised with clients; completed UAT with <b>0 critical bugs</b> before go-live</li>
+                        <li>Managed <b>10+ change requests</b>, prioritized by business value</li>
+                        <li>Facilitated weekly standups, sprint reviews, and retrospectives</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Technical</div>
+                    <ul class="resp-list">
+                        <li>Designed multi-tenant architecture supporting <b>50+ simultaneous tenants</b></li>
+                        <li>Automated email marketing delivering <b>10,000+ emails/day</b> via AWS SES</li>
+                        <li>Reviewed code and ensured technical quality across all modules</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> TypeScript, Node.js (NestJS), React.js &middot; PostgreSQL, Redis, MongoDB &middot; Docker &middot; AWS (S3, EC2, VPC, SES, CloudFront, RDS, Route53&hellip;)</div>
+        </div>
+
+        <!-- Niko SoulBound -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Niko SoulBound &ndash; Blockchain Community Platform</span>
+                <span class="job-date">Jun 2022 &ndash; Dec 2023</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Napa Global</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Technical Project Manager / Backend Developer (NestJS) / DevOps</span>
+                <span class="job-team-size">&#128101; 9 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Blockchain-based community platform recognizing GitHub contributions via Soulbound Tokens (SBT) &mdash; transparent and immutable contribution history, issuing <b>5,000+ SBTs on-chain</b>.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Project Management</div>
+                    <ul class="resp-list">
+                        <li>Led a team of 9 over 18 months across 3 phases (MVP &rarr; Enhancement &rarr; Scale)</li>
+                        <li>Built release plan and long-term roadmap; delivered <b>6 releases on schedule</b></li>
+                        <li>Optimized CI/CD pipelines; reduced <b>deploy time from 45 minutes to 8 minutes</b></li>
+                        <li>Mentored 3 junior developers (2 promoted to mid-level)</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Technical</div>
+                    <ul class="resp-list">
+                        <li>Architected system issuing <b>5,000+ SBT tokens</b> on-chain</li>
+                        <li>Provided code reviews and technical direction</li>
+                        <li>Optimized AWS infrastructure, achieving <b>99.8% uptime</b></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> TypeScript, Node.js (NestJS), React.js &middot; Redis, MySQL &middot; Docker &middot; GitHub Actions, GitLab CI &middot; AWS (EC2, ALB, KMS, VPC, S3, CloudWatch, SNS&hellip;) &middot; Blockchain (SBT, EVM Networks)</div>
+        </div>
+
+        <!-- DDF -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">DDF &ndash; Blockchain Distribution Platform</span>
+                <span class="job-date">Nov 2021 &ndash; May 2022</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">STI</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Technical Project Manager / Backend Developer (Node.js)</span>
+                <span class="job-team-size">&#128101; 14 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Blockchain platform for cryptocurrency issuance, enabling users to purchase goods from distributors &mdash; processing <b>2,000+ token transactions/day</b> with ERC-20/BEP-20 smart contract integration.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Project Management</div>
+                    <ul class="resp-list">
+                        <li>Managed a team of 14; <b>100% on-time delivery</b> across 6 sprints</li>
+                        <li>Worked directly with clients to define requirements and prioritize features</li>
+                        <li>Managed smart contract security risks; <b>0 vulnerabilities</b> post-audit</li>
+                        <li>Coordinated Backend, Frontend, and Blockchain teams for seamless integration</li>
+                        <li>Delivered weekly progress reports and product demos to clients</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Technical</div>
+                    <ul class="resp-list">
+                        <li>Led architecture design for a system processing <b>2,000+ token transactions/day</b></li>
+                        <li>Designed wallet flow, transaction handling, and smart contract integration (ERC-20/BEP-20)</li>
+                        <li>Conducted code reviews and enforced coding standards</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> Node.js (Express.js), JavaScript, React.js &middot; Redis, PostgreSQL &middot; Docker &middot; AWS (EC2, ALB, KMS, VPC, S3, SQS, CloudWatch&hellip;) &middot; Blockchain (ERC-20/BEP-20)</div>
+        </div>
+
+        <!-- Smart Logistics -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Smart Logistics Platform</span>
+                <span class="job-date">Jun 2021 &ndash; Oct 2021</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">STI</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Team Leader / Backend Developer (Node.js)</span>
+                <span class="job-team-size">&#128101; 8 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> End-to-end smart logistics system: real-time tracking of <b>500+ orders/day</b> via WebSocket, warehouse management, route optimization, and delivery performance analytics.</div>
+            <div class="resp-cols">
+                <div class="resp-section">
+                    <div class="resp-title">Team Leadership</div>
+                    <ul class="resp-list">
+                        <li>Led a team of 8; assigned tasks and monitored daily progress</li>
+                        <li>Collaborated with BAs and <b>3 logistics partners</b> to define integration requirements</li>
+                        <li>Mentored 2 junior developers; conducted daily code reviews</li>
+                    </ul>
+                </div>
+                <div class="resp-section">
+                    <div class="resp-title">Technical</div>
+                    <ul class="resp-list">
+                        <li>Architected real-time tracking system for <b>500+ orders/day</b> using WebSocket</li>
+                        <li>Built warehouse API and route optimization, reducing <b>shipping costs by 20%</b></li>
+                        <li>Integrated third-party APIs (logistics partners, Google Maps)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> Node.js (Express.js), JavaScript, React.js &middot; MySQL, Redis &middot; Docker &middot; AWS (EC2, S3, VPC, SQS, CloudWatch&hellip;)</div>
+        </div>
+
+        <!-- Sheer Hotel Booking -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Sheer Hotel Booking</span>
+                <span class="job-date">Feb 2021 &ndash; May 2021</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">BAP</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Backend Developer (PHP)</span>
+                <span class="job-team-size">&#128101; 14 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Full-featured hotel booking platform &mdash; room reservations, dynamic pricing management, guest data handling, and payment integration.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Built booking flow supporting <b>500+ concurrent reservations</b>; integrated 2 payment gateways</li>
+                    <li>Designed scalable DB schema for dynamic pricing across <b>100+ room types</b></li>
+                    <li>Reduced booking processing time by <b>~40%</b> through query optimization and caching</li>
+                    <li>Took ownership of onboarding 2 new developers and conducting code reviews &mdash; first leadership responsibility</li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> PHP (Laravel), Vue.js &middot; MySQL, Redis &middot; Docker &middot; AWS (EC2, VPC, S3&hellip;)</div>
+        </div>
+
+        <!-- Beauty Salon -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Beauty Salon &ndash; Booking &amp; Scheduling System</span>
+                <span class="job-date">Jul 2020 &ndash; Jan 2021</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">BAP Software</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Backend Developer (PHP)</span>
+                <span class="job-team-size">&#128101; 10 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Online appointment booking system for spas and beauty services &mdash; real-time availability viewing, appointment scheduling, and service management.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Built appointment booking module managing <b>200+ appointments/day</b> across multiple service branches</li>
+                    <li>Implemented RBAC for staff and admin roles; reduced permission-related bugs by <b>~60%</b></li>
+                    <li>Built admin dashboard for real-time slot overview and conflict resolution</li>
+                    <li>Optimized scheduling queries; reduced page load time from <b>4s to under 1s</b></li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> PHP (Laravel), React.js &middot; PostgreSQL, Redis &middot; Docker &middot; AWS (EC2, VPC, S3&hellip;)</div>
+        </div>
+
+        <!-- HR Management System -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">HR Management System</span>
+                <span class="job-date">Jan 2020 &ndash; Jun 2020</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">BAP Software</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Backend Developer (PHP)</span>
+                <span class="job-team-size">&#128101; 6 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Internal HR management system &mdash; employee records, attendance tracking, automated payroll calculation, and comprehensive reporting dashboards.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Built employee management and RBAC module for <b>200+ staff records</b></li>
+                    <li>Automated payroll calculation; reduced manual processing time by <b>~70%</b></li>
+                    <li>Created reporting dashboards with real-time HR analytics (attendance, leave, OT)</li>
+                    <li>Integrated REST APIs with third-party accounting system; reduced data sync errors by <b>~80%</b></li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> PHP (Laravel), Vue.js &middot; PostgreSQL, Redis &middot; Docker &middot; AWS (EC2, S3, VPC&hellip;)</div>
+        </div>
+
+        <!-- E-Learning Platform -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">E-Learning Platform (Japan)</span>
+                <span class="job-date">Jul 2019 &ndash; Jan 2020</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">BAP Software</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Backend Developer (PHP)</span>
+                <span class="job-team-size">&#128101; 8 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Online learning platform for a Japanese client &mdash; course management, video streaming, quizzes, and learner progress tracking.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Built course and content management APIs serving <b>1,000+ learners</b></li>
+                    <li>Built quiz system with automated grading; reduced manual grading by <b>100%</b></li>
+                    <li>Integrated video streaming via AWS CloudFront; improved load time by <b>~50%</b></li>
+                    <li>Optimized slow queries; reduced average API response time from <b>2s to 400ms</b></li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> PHP (Laravel), Vue.js &middot; MySQL, Redis &middot; Docker &middot; AWS (EC2, S3, VPC, CloudFront)</div>
+        </div>
+
+        <!-- Tokyo Harbor -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Tokyo Harbor &ndash; Japan Travel Platform</span>
+                <span class="job-date">Jun 2019 &ndash; Jun 2020</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">BAP Software</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Backend Developer (PHP)</span>
+                <span class="job-team-size">&#128101; 6 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Japan tourism platform &mdash; train schedules, trip planning, booking, and itinerary management for travelers exploring Japanese destinations.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Built backend APIs for trip planning covering <b>50+ train routes</b> and <b>200+ destinations</b></li>
+                    <li>Designed relational schema for locations, schedules, and booking relationships</li>
+                    <li>Integrated 3 third-party APIs (train schedules, Google Maps, payment gateway)</li>
+                    <li>Optimized complex queries; reduced search response time by <b>~60%</b></li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> PHP (Laravel), React.js &middot; MySQL, Redis &middot; Docker &middot; AWS (EC2, VPC, S3&hellip;)</div>
+        </div>
+
+        <!-- Booking Travel Platform -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Booking Travel Platform</span>
+                <span class="job-date">Jan 2018 &ndash; Jun 2018</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Freelance</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Fullstack Developer (PHP, Laravel, jQuery)</span>
+                <span class="job-team-size">&#128101; 3 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> MVP online tour booking platform &mdash; tour search, seat reservation, payment processing, and itinerary management.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Built tour search and filtering system</li>
+                    <li>Developed seat reservation and itinerary management module</li>
+                    <li>Designed database for destinations, tours, and bookings</li>
+                    <li>Built admin interface for tour management</li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> PHP (Laravel), jQuery, Bootstrap &middot; MySQL</div>
+        </div>
+
+        <!-- Shop Quần Áo -->
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-role">Online Fashion Shop &ndash; E-commerce</span>
+                <span class="job-date">Mar 2017 &ndash; Dec 2017</span>
+            </div>
+            <div class="job-meta-row">
+                <span class="job-company">Freelance</span>
+                <span class="job-meta-sep">&middot;</span>
+                <span class="job-position">Fullstack Developer (PHP, Laravel)</span>
+                <span class="job-team-size">&#128101; 2 members</span>
+            </div>
+            <div class="job-desc"><span class="job-desc-label">Project:</span> Full-featured fashion e-commerce website &mdash; product management, shopping cart, order processing, payment integration, and inventory management.</div>
+            <div class="resp-single">
+                <ul class="resp-list" style="columns:2; gap:20px;">
+                    <li>Designed and developed frontend user interface</li>
+                    <li>Built backend APIs for product and order management</li>
+                    <li>Integrated payment gateway and inventory management</li>
+                    <li>Deployed and maintained the production system</li>
+                </ul>
+            </div>
+            <div class="job-tech"><strong>Stack:</strong> PHP (Laravel), HTML/CSS/JavaScript &middot; MySQL</div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
